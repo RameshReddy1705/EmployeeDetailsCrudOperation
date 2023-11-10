@@ -20,11 +20,10 @@ import com.emp.EmployeeDetails.JpaRepository.Employee02Repository;
 import com.emp.EmployeeDetails.JpaRepository.ProjectRepository;
 import com.emp.EmployeeDetails.dto.Employee02;
 import com.emp.EmployeeDetails.dto.Projects;
-import com.emp.EmployeeDetails.responseStructure.Employee02ResponseStructure;
 import com.emp.EmployeeDetails.service.Employee02Service;
 
 @RestController
-//@CrossOrigin
+@CrossOrigin("*")
 public class Employee02Controller
 {
 	private Employee02Service employee02Service;
@@ -39,32 +38,60 @@ public class Employee02Controller
 	}
 	
 	@PostMapping("/emp02")
-	public ResponseEntity<Employee02ResponseStructure<Employee02>> createEmployee02(@RequestBody Employee02 employee02)
+	public Employee02 createEmployee02(@RequestBody Employee02 employee02)
 	{
 		return employee02Service.createEmp(employee02);	
 	}
 	@PutMapping("/emp02")
-	public ResponseEntity<Employee02ResponseStructure<Employee02>> updateEmployee02(@RequestBody Employee02 employee02)
+	public Employee02 updateEmployee02(Employee02 employee02)
 	{
 
 		return employee02Service.updateEmp(employee02);	
 	}
 	@GetMapping("/emp02")
-	public ResponseEntity<Employee02ResponseStructure<List<Employee02>>> retriveAllEmployees()
+	public List<Employee02> retriveAllEmployees()
 	{
 		return employee02Service.retriveAllEmp();
 	}
 	
 	@GetMapping("/emp02/{id}")
-	public ResponseEntity<Employee02ResponseStructure<Employee02>> findByTheId(@PathVariable long id)
+	public Employee02 findByTheId(@PathVariable long id)
 	{
 		return employee02Service.servicefindId(id);
 	}
 	@DeleteMapping("emp02/{id}")
-	public ResponseEntity<Void>  deleteByTheId(@PathVariable long id)
+	public void  deleteByTheId(@PathVariable long id)
 	{
-		return employee02Service.servicedeleteTheId(id);
+		employee02Service.servicedeleteTheId(id);
 	}
+	
+//	@PostMapping("/emp02")
+//	public ResponseEntity<Employee02ResponseStructure<Employee02>> createEmployee02(@RequestBody Employee02 employee02)
+//	{
+//		return employee02Service.createEmp(employee02);	
+//	}
+//	@PutMapping("/emp02")
+//	public ResponseEntity<Employee02ResponseStructure<Employee02>> updateEmployee02(@RequestBody Employee02 employee02)
+//	{
+//
+//		return employee02Service.updateEmp(employee02);	
+//	}
+//	@GetMapping("/emp02")
+//	public ResponseEntity<Employee02ResponseStructure<List<Employee02>>> retriveAllEmployees()
+//	{
+//		return employee02Service.retriveAllEmp();
+//	}
+//	
+//	@GetMapping("/emp02/{id}")
+//	public ResponseEntity<Employee02ResponseStructure<Employee02>> findByTheId(@PathVariable long id)
+//	{
+//		return employee02Service.servicefindId(id);
+//	}
+//	@DeleteMapping("emp02/{id}")
+//	public ResponseEntity<Void>  deleteByTheId(@PathVariable long id)
+//	{
+//		return employee02Service.servicedeleteTheId(id);
+//	}
 	
 	
 	//....................................................................................
