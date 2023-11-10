@@ -9,10 +9,11 @@ function Main() {
         <BrowserRouter>
             <div>
                 <Routes>
-                  <Route path="/" element={<ListEmployee02></ListEmployee02>}></Route>
+                <Route path="/" element={<ListEmployee02></ListEmployee02>}></Route>
+                  {/* <Route path="/list" element={<ListEmployee02></ListEmployee02>}></Route> */}
                   <Route path="/employees" element={<ListEmployee02></ListEmployee02>}></Route>
                   <Route path="/add-employee" element={<CreateEmployee></CreateEmployee>}></Route>
-                  <Route path="/update-employee" element={<CreateEmployee></CreateEmployee>}></Route>
+                  <Route path="/edit-employee/:id" element={<CreateEmployee></CreateEmployee>}></Route>
                 </Routes>
             </div>
         </BrowserRouter>

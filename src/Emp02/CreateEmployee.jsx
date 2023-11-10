@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { createEmployee, updateEmployee } from "./ServiceApi";
+import { createEmployee, getEmployeeById, updateEmployee } from "./ServiceApi";
 
 function CreateEmployee() {
 
@@ -17,7 +17,8 @@ function CreateEmployee() {
 
         console.log(employee);
         if(id){
-            updateEmployee(id, employee).then((response) => {
+            updateEmployee(id, employee)
+            .then((response) => {
                 navigate('/employees')
             }).catch(error => {
                 console.log(error)

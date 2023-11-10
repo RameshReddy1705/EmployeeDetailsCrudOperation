@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { retriveAll} from "./Api/EmployeeServiceApi";
 import { Link, useNavigate } from "react-router-dom";
+import { listEmployees } from "../Emp02/ServiceApi";
 
 function ListEmployee() {
-    // const [employee, setEmployee] = useState([])
+    const [employee, setEmployee] = useState([])
     const navigate=useNavigate()
     useEffect(
         ()=>refreshEmployee(),[]
     )
     function refreshEmployee()
     {
-        retriveAll()
+        listEmployees(1)
         .then(res=>{
             console.log(res);
         })
